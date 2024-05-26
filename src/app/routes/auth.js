@@ -20,7 +20,9 @@ const writeUsers = (users) => {
 router.post("/register", (req, res) => {
   const { username, password, role } = req.body;
   const users = readUsers();
-  const existingUser = users.find((user) => user.username === username);
+  const existingUser = users.find(
+    (user) => user.username === username && user.role === role
+  );
 
   if (existingUser) {
     return res.status(400).json({ message: "User already exists" });
@@ -28,6 +30,7 @@ router.post("/register", (req, res) => {
 
   users.push({ username, password, role });
   writeUsers(users);
+
   res.status(201).json({ message: "User registered successfully" });
 });
 
