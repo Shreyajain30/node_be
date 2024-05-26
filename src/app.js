@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-require("dotenv");
+const cors = require("cors"); // Import the CORS middleware
+require("dotenv").config(); // Fix for loading environment variables
 
 // Import routes
 const authRoutes = require("./app/routes/auth");
@@ -11,6 +12,7 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
 // API Routes
 app.use("/api/auth", authRoutes);
