@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "propertyId": "12345",
+    "title": "Spacious 3 BHK Apartment",
+    "description": "A beautiful and spacious 3 BHK apartment with all modern amenities.",
+    "price": 7500000,
+    "address": {
+      "street": "123 Main Street",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "postalCode": "400001"
+    },
+    "area": "1500 sqft",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "amenities": [
+      "Swimming Pool",
+      "Gym",
+      "Parking",
+      "Garden",
+      "Security"
+    ],
+    "nearbyFacilities": {
+      "schools": [
+        "ABC School",
+        "XYZ International School"
+      ],
+      "hospitals": [
+        "City Hospital",
+        "General Hospital"
+      ],
+      "colleges": [
+        "ABC College",
+        "XYZ University"
+      ],
+      "shoppingCenters": [
+        "City Mall",
+        "Central Plaza"
+      ]
+    },
+    "images": [
+      "image1_url.jpg",
+      "image2_url.jpg"
+    ],
+    "contact": {
+      "name": "John Doe",
+      "phone": "1234567890",
+      "email": "johndoe@example.com"
+    },
+    "seller": "decker",
+    "likes": []
+  }
+]
