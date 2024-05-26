@@ -22,8 +22,6 @@ app.use("/", (req, res) => {
   res.send("Hello World");
 });
 
-console.log(process.env);
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
