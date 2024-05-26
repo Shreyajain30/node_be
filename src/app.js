@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require("dotenv");
 
 // Import routes
 const authRoutes = require("./app/routes/auth");
@@ -21,13 +22,15 @@ app.use("/", (req, res) => {
   res.send("Hello World");
 });
 
+console.log(process.env);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
