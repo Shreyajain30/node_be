@@ -1,54 +1,146 @@
 [
   {
     "id": 1,
-    "propertyId": "12345",
-    "title": "Spacious 3 BHK Apartment",
-    "description": "A beautiful and spacious 3 BHK apartment with all modern amenities.",
-    "price": 7500000,
-    "address": {
-      "street": "123 Main Street",
-      "city": "Mumbai",
-      "state": "Maharashtra",
-      "postalCode": "400001"
-    },
-    "area": "1500 sqft",
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "amenities": [
-      "Swimming Pool",
-      "Gym",
-      "Parking",
-      "Garden",
-      "Security"
-    ],
-    "nearbyFacilities": {
-      "schools": [
-        "ABC School",
-        "XYZ International School"
-      ],
-      "hospitals": [
-        "City Hospital",
-        "General Hospital"
-      ],
-      "colleges": [
-        "ABC College",
-        "XYZ University"
-      ],
-      "shoppingCenters": [
-        "City Mall",
-        "Central Plaza"
-      ]
-    },
+    "title": "Royal 6BHK Haveli",
+    "description": "Experience regal living in this beautifully restored haveli with intricate artwork interiors.",
+    "location": "C-Scheme, Jaipur",
+    "rent": "120000",
+    "size": "7000",
     "images": [
-      "image1_url.jpg",
-      "image2_url.jpg"
+      "https://i.pinimg.com/originals/fe/e1/24/fee12483fa76a33ad2f9ed3f5b424753.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJuL4vlv49XNhhiYuiCZOmIk-KEsOlfC5DIDwQCpDUtcqR4rl9JMpam3vmnvygXwmlOI&usqp=CAU"
     ],
-    "contact": {
-      "name": "John Doe",
-      "phone": "1234567890",
-      "email": "johndoe@example.com"
-    },
-    "seller": "decker",
-    "likes": []
+    "seller": "Rajat",
+    "contact": "9876543216",
+    "email": "rajat@gmail.com",
+    "sellerId": "decker@gmail.com"
+  },
+  {
+    "id": 2,
+    "title": "Spacious 2 BHK ",
+    "description": "A wholesome, comfortable and prettyhouse with 3 balconies.",
+    "location": "Sahastradhara Road, Dehradun",
+    "rent": "25000",
+    "size": "1800",
+    "images": [
+      "https://www.bhg.com/thmb/BUuoAjcklvSbbqKWb7ICsveIrPM=/1244x0/filters:no_upscale():strip_icc()/cottage-home-window-boxes-trellises-423e6dbe-5fe04f38d95047cc8925eeaed665d5c6.jpg",
+      "https://media.designcafe.com/wp-content/uploads/2021/12/22220905/rented-house-interior-design-with-new-furniture.jpg"
+    ],
+    "seller": "Shreya",
+    "contact": "8894792372",
+    "email": "shreya@gmail.com",
+    "sellerId": "ram@gmail.com"
+  },
+  {
+    "id": 3,
+    "title": "Cozy 2BHK Apartment",
+    "description": "A cozy 2 BHK apartment located in the heart of the city.",
+    "location": "Connaught Place, Delhi",
+    "rent": "50000",
+    "size": "1500",
+    "images": [
+      "https://cms.interiorcompany.com/wp-content/uploads/2023/11/simple-and-beautiful-house-design-the-loft-aesthetic.png",
+      "https://cms.interiorcompany.com/wp-content/uploads/2024/03/marry-neutrals-with-pastels-cozy-bedroom-decor.jpg"
+    ],
+    "seller": "Decker",
+    "contact": "9127787863",
+    "email": "decker@gmail.com",
+    "sellerId": "decker@gmail.com"
+  },
+  {
+    "id": 4,
+    "title": "2BHK Luxury Villa with Pool",
+    "description": "A luxurious villa with a private pool and garden.",
+    "location": "Bangalore, Karnataka",
+    "rent": "40000",
+    "size": "1200",
+    "images": [
+      "https://houzone.com/wp-content/uploads/2021/01/3-bedroom-luxury-pool-house-design-house-plans-indiahousedesign-houzone-01.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/6/TO/ZO/FY/29206063/luxurious-bedroom-interior-design-500x500.jpg"
+    ],
+    "seller": "Shreya",
+    "contact": "7879932163",
+    "email": "shreya@gmail.com",
+    "sellerId": "decker@gmail.com"
+  },
+  {
+    "id": 5,
+    "title": "Charming 1 BHK flat",
+    "description": "Spacious 1 BHK apartment with full privacy.",
+    "location": " Rẽves Society, Makkawala, Dehradun",
+    "rent": "12000",
+    "size": "800",
+    "images": [
+      "https://www.hotel-ahmedabad.net/data/Photos/OriginalPhoto/6268/626841/626841872/ahmedabad-entire-1-bhk-cozy-apartment-garden-view-visual-delight-photo-7.JPEG",
+      "https://static.designboom.com/wp-content/uploads/2016/08/altsdesignoffice01-designboom.jpg"
+    ],
+    "seller": "Shreya",
+    "contact": "9786730304",
+    "email": "Shreya@gmail.com",
+    "sellerId": "ram@gmail.com"
+  },
+  {
+    "id": 6,
+    "title": "Modern 3BHK Apartment",
+    "description": "A chic, modern apartment with all the amenities for comfortable living.",
+    "location": "Vasant Kunj, New Delhi",
+    "rent": "28000",
+    "size": "2500",
+    "images": [
+      "https://cms.interiorcompany.com/wp-content/uploads/2023/11/cream-and-soft-green-outside-home-colour-combination.png",
+      "https://psgroup.in/blog/wp-content/uploads/2022/06/Living-Room-Color.jpg"
+    ],
+    "seller": "Kunal",
+    "contact": "8854321098",
+    "email": "kunal@gmail.com",
+    "sellerId": "ram@gmail.com"
+  },
+  {
+    "id": 7,
+    "title": "Heritage 5BHK Bungalow",
+    "description": "A charming bungalow with historical significance, featuring vintage architecture and spacious gardens.",
+    "location": "Salt Lake, Kolkata",
+    "rent": "70000",
+    "size": "4000",
+    "images": [
+      "https://en-media.thebetterindia.com/uploads/2022/12/Front-1_11zon-1670052581.jpg",
+      "https://media.assettype.com/outlooktraveller%2Fimport%2Fpublic%2Fuploads%2Ffilemanager%2Fimages%2FJatrapada-1-new.jpg"
+    ],
+    "seller": "Suman",
+    "contact": "9876543215",
+    "email": "suman@gmail.com",
+    "sellerId": "ram@gmail.com"
+  },
+  {
+    "id": 8,
+    "title": "Spacious IT Park Office",
+    "description": "A well-furnished office space in the heart of the IT hub, ideal for startups and tech companies.",
+    "location": "Hitech City, Hyderabad",
+    "rent": "11000",
+    "size": "1200",
+    "images": [
+      "https://assets.devx.work/images/external/blog/corporate_office_building/nesco.jpg",
+      "https://imagecdn.99acres.com/media1/24857/2/497142158M-1717854260971.jpg"
+    ],
+    "seller": "Anita",
+    "contact": "9876543213",
+    "email": "anita@gmail.com",
+    "sellerId": "ram@gmail.com"
+  },
+  {
+    "id": 9,
+    "title": "Luxurious Penthouse ",
+    "description": "A stunning and well-furnished penthouse located in the prestigious Marine Drive area, offering breathtaking sea views and premium amenities.",
+    "location": "Marine Drive, Mumbai",
+    "rent": "250000",
+    "size": "3500",
+    "images": [
+      "https://pbs.twimg.com/media/EvtjMo7VcAAXFwD?format=jpg&name=large",
+      "https://assets.architecturaldigest.in/photos/600822f8111eef0df0a1c613/16:9/w_2560%2Cc_limit/interior-design-this-apartment-in-mumbai-offers-a-stunning-view-of-marine-drive11-1366x768.jpg"
+    ],
+    "seller": "Jenny",
+    "contact": "9876543213",
+    "email": "jennyta@gmail.com",
+    "sellerId": "ram@gmail.com"
   }
 ]

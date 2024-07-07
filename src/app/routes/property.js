@@ -1,6 +1,8 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const jwt = require("jsonwebtoken");
+const { secretKey } = require("./auth");
 const router = express.Router();
 const usersFilePath = path.join(__dirname, "../../data/users.json");
 const propertiesFilePath = path.join(__dirname, "../../data/properties.json");
@@ -14,40 +16,53 @@ const writeProperties = (properties) =>
 
 // Middleware to check if user is authenticated
 const authenticateUser = (req, res, next) => {
-  const { username, password } = req.headers;
-  const users = readUsers();
-  const user = users.find((user) => {
-    return user.username === username;
-  });
-
-  console.log(user);
-
-  if (!user) {
+  console.log("in authenticateUser")
+  const token = req.headers["authorization"];
+  if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+  const bearerToken = token.split(" ")[1];
+  jwt.verify(bearerToken, secretKey, (err, data) => {
+    if (err) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    req.user = data;
 
-  req.user = user;
-  next();
+    next();
+  });
 };
 
 // Middleware to check if user is a seller
 const authenticateSeller = (req, res, next) => {
   authenticateUser(req, res, () => {
+  console.log("in authenticateSeller")
+
     if (req.user.role !== "seller") {
       return res.status(403).json({ message: "Forbidden" });
     }
     next();
   });
 };
-
+// Middleware to check if user is a buyer
+const authenticateBuyer = (req, res, next) => {
+  authenticateUser(req, res, () => {
+    if (req.user.role !== "buyer") {
+      return res.status(403).json({ message: "Forbidden" });
+    }
+    next();
+  });
+};
 // Create property
-router.post("/", authenticateSeller, (req, res) => {
+router.post("/seller/:email", authenticateSeller, (req, res) => {
+  const requestedUser = req.params.email;
+  const loggedInUser = req.user.email;
+  if (requestedUser !== loggedInUser)
+    return res.status(403).send({ message: "forbidden" });
   const properties = readProperties();
   const property = {
-    id: properties.length + 1,
+    id: properties[properties.length - 1].id + 1,
     ...req.body,
-    seller: req.user.username,
-    likes: [],
+    sellerId: req.params.email,
   };
   properties.push(property);
   writeProperties(properties);
@@ -62,6 +77,7 @@ router.get("/", (req, res) => {
 
 // Update property
 router.put("/:id", authenticateSeller, (req, res) => {
+  console.log("came in update");
   const properties = readProperties();
   const propertyIndex = properties.findIndex(
     (p) => p.id === parseInt(req.params.id)
@@ -71,7 +87,7 @@ router.put("/:id", authenticateSeller, (req, res) => {
     return res.status(404).json({ message: "Property not found" });
   }
 
-  if (properties[propertyIndex].seller !== req.user.username) {
+  if (properties[propertyIndex].sellerId !== req.user.email) {
     return res.status(403).json({ message: "Forbidden" });
   }
 
@@ -88,12 +104,11 @@ router.delete("/:id", authenticateSeller, (req, res) => {
   const propertyIndex = properties.findIndex(
     (p) => p.id === parseInt(req.params.id)
   );
-
   if (propertyIndex === -1) {
     return res.status(404).json({ message: "Property not found" });
   }
 
-  if (properties[propertyIndex].seller !== req.user.username) {
+  if (properties[propertyIndex].sellerId !== req.user.email) {
     return res.status(403).json({ message: "Forbidden" });
   }
 
@@ -104,34 +119,21 @@ router.delete("/:id", authenticateSeller, (req, res) => {
     .json({ message: "Property deleted", property: deletedProperty[0] });
 });
 
-// Like property
-router.post("/:id/like", authenticateUser, (req, res) => {
-  const properties = readProperties();
-  const property = properties.find((p) => p.id === parseInt(req.params.id));
-
-  if (!property) {
-    return res.status(404).json({ message: "Property not found" });
-  }
-
-  if (!property.likes.includes(req.user.username)) {
-    property.likes.push(req.user.username);
-    writeProperties(properties);
-  }
-
-  res.status(200).json({ message: "Property liked", property });
-});
-
 // List properties for buyer
-router.get("/buyer", authenticateUser, (req, res) => {
+router.get("/buyer", authenticateBuyer, (req, res) => {
   const properties = readProperties();
   res.status(200).json(properties);
 });
 
 // Show details of seller
-router.get("/seller/:username", authenticateUser, (req, res) => {
+router.get("/seller/:email", authenticateUser, (req, res) => {
+  const requestedUser = req.params.email;
+  const loggedInUser = req.user.email;
+  if (requestedUser !== loggedInUser)
+    return res.status(403).send({ message: "forbidden" });
   const users = readUsers();
   const seller = users.find(
-    (user) => user.username === req.params.username && user.role === "seller"
+    (user) => user.email === req.params.email && user.role === "seller"
   );
 
   if (!seller) {
@@ -139,9 +141,9 @@ router.get("/seller/:username", authenticateUser, (req, res) => {
   }
 
   const properties = readProperties().filter(
-    (property) => property.seller === seller.username
+    (property) => property.sellerId === seller.email
   );
-  res.status(200).json({ seller, properties });
+  res.status(200).json(properties);
 });
 
 module.exports = router;

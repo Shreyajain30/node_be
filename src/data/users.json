@@ -1,7 +1,32 @@
 [
   {
-    "username": "decker",
+    "email": "decker@gmail.com",
     "password": "decker",
     "role": "seller"
+  },
+  {
+    "email": "shreya@gmail.com",
+    "password": "shreya",
+    "role": "buyer"
+  },
+  {
+    "email": "ram@gmail.com",
+    "password": "ram",
+    "role": "seller"
+  },
+  {
+    "email": "jenny@gmail.com",
+    "password": "jenny",
+    "role": "buyer"
+  },
+  {
+    "email": "radharani@gmail.com",
+    "password": "radharani",
+    "role": "seller"
+  },
+  {
+    "email": "mukesh@gmail.com",
+    "password": "mukesh",
+    "role": "buyer"
   }
 ]
